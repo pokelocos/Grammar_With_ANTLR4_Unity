@@ -1,0 +1,2 @@
+error 99, no rules
+https://stackoverflow.com/questions/17078752/antlr-error99-grammar-has-no-rules

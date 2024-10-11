@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:TextField picking-mode="Ignore" value="filler text" name="output_field" hide-mobile-input="false" multiline="false" style="flex-grow: 0;">
+        <ui:Slider picking-mode="Ignore" value="1" high-value="1" show-input-field="true" name="weight_slider" style="width: 130px;" />
+        <ui:Button text="-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="delete" style="font-size: 14px; -unity-font-style: bold;" />
+    </ui:TextField>
+</ui:UXML>

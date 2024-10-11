@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="flex-direction: row; flex-grow: 0; align-items: flex-start; margin-bottom: 6px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px;">
+        <ui:VisualElement style="flex-grow: 1;">
+            <ui:TextField picking-mode="Ignore" value="filler text" name="input_field" style="flex-grow: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=-4521532143779581420&amp;guid=399f6c7a6f4db2e49a24ed90e5d4c82d&amp;type=3#arrow-right&apos;); flex-grow: 0; -unity-background-scale-mode: scale-to-fit; width: 20px; height: 20px;" />
+        <ui:VisualElement name="output_continer" style="flex-grow: 1;">
+            <ui:Button text="+" parse-escape-sequences="true" display-tooltip-when-elided="true" name="add" style="-unity-font-style: bold; font-size: 14px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
