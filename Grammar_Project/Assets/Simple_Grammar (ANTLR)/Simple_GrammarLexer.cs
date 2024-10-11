@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:/Projects/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
+// Generated from C:/Projects/Grammar_With_ANTLR4_Unity/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
 
 // Unreachable code detected
 #pragma warning disable 0162

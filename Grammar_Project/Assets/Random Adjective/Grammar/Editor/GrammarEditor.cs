@@ -63,11 +63,11 @@ public class GrammarEditor : Editor
         button.text = "Add Rule";
         root.Add(button);
 
-        containerMetadata = Metadata();
-        root.Add(containerMetadata);
+        //containerMetadata = Metadata();
+        //root.Add(containerMetadata);
 
-        var alphabetic = Alphabetic();
-        root.Add(alphabetic);
+        //var alphabetic = Alphabetic();
+        //root.Add(alphabetic);
 
         // Create ANTLR files
         var genANTRL = new Button(() =>
@@ -116,6 +116,7 @@ public class GrammarEditor : Editor
 
         return root;
     }
+
 
     private void ShowRules(bool value)
     {

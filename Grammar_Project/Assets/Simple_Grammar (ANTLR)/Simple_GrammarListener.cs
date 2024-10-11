@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:/Projects/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
+// Generated from C:/Projects/Grammar_With_ANTLR4_Unity/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -31,6 +31,16 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface ISimple_GrammarListener : IParseTreeListener {
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.start"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterStart([NotNull] Simple_GrammarParser.StartContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="Simple_GrammarParser.start"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitStart([NotNull] Simple_GrammarParser.StartContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.s"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -50,4 +60,24 @@ public interface ISimple_GrammarListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitT([NotNull] Simple_GrammarParser.TContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.a"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterA([NotNull] Simple_GrammarParser.AContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="Simple_GrammarParser.a"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitA([NotNull] Simple_GrammarParser.AContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.b"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterB([NotNull] Simple_GrammarParser.BContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="Simple_GrammarParser.b"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitB([NotNull] Simple_GrammarParser.BContext context);
 }

@@ -6,7 +6,7 @@ using System.Reflection;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "New grammar", menuName = "Grammar/New Grammar...")]
+[CreateAssetMenu(fileName = "New_Grammar", menuName = "Grammar/New Grammar...")]
 public class Grammar : ScriptableObject
 {
     private const int MAX_ITERATIONS = int.MaxValue; // int.MaxValue = 2.147.483.647
@@ -86,6 +86,10 @@ public class Grammar : ScriptableObject
 
         value += "grammar " + name + ";\n\n";
 
+        value += "start :  ( " + rootWord + " " + "EOF" + " ) ;\n";
+
+        List<string> terminals = new();
+
         foreach (var rule in rules)
         {
             value += rule.input + " : ";
@@ -96,21 +100,33 @@ public class Grammar : ScriptableObject
                 var words = o.words;
                 foreach (var w in words)
                 {
-                    if (IsExpandable(w))
+                    if(!IsExpandable(w) && !terminals.Contains(w))
                     {
-                        value += w;
+                        terminals.Add(w);
                     }
-                    else
-                    {
-                        value += "'" + w + "'";
-                    }
-                    value += " ";
+
+                    value += w + " ";
+
+                    //    if (IsExpandable(w))
+                    //    {
+                    //        value += w;
+                    //    }
+                    //    else
+                    //    {
+                    //        value += "'" + w + "'";
+                    //    }
+                    //    value += " ";
                 }
 
-                if(o != output.Last()) value += "|";
+                if(o != output.Last()) value += " | ";
             }
             value = value.TrimEnd();
             value += ";\n";
+        }
+
+        foreach (var t in terminals)
+        {
+            value += t + " : "+ "'" + t + "' ;\n";
         }
 
         return value;

@@ -9,6 +9,7 @@ using System.IO;
 using System;
 using System.Linq;
 using UnityEditor;
+using Antlr4.Runtime.Misc;
 
 public class CheckGrammar : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class CheckGrammar : MonoBehaviour
     public TMP_Dropdown lexerDropdown;
     public TMP_Dropdown parserDropdown;
     public TMP_InputField inputField;
+    public Button check;
 
     private Type lexerType;
     private Type parserType;
@@ -73,14 +75,25 @@ public class CheckGrammar : MonoBehaviour
             var tokenStream = new CommonTokenStream(lexer);
             var parser = Activator.CreateInstance(parserType, tokenStream) as Parser;
 
-            var errorListener = new ErrorListener();
-            parser.RemoveErrorListeners();
-            parser.AddErrorListener(errorListener);
+            //var errorLexer = new LexerErrorListener();
+            var errorLexer = new ErrorLexer();
+            lexer.RemoveErrorListeners();
+            lexer.AddErrorListener(errorLexer);
 
-            var parseMethod = parserType.GetMethod(grammar.rootWord);
+            //var errorParser = new ParserErrorListener();
+            var errorParser = new ErrorParser();
+            parser.RemoveErrorListeners();
+            parser.AddErrorListener(errorParser);
+            //parser.AddParseListener(new aaaa());
+
+            var parseMethod = parserType.GetMethod("start");
+            //var parseMethod = parserType.GetMethod(grammar.rootWord);
             var tree = parseMethod.Invoke(parser, null) as IParseTree;
-            //Debug.Log(tree.ToStringTree(parser));
-            Debug.Log("The sentence is: " + !errorListener.HasErrors);
+            Debug.Log(tree.ToStringTree(parser));
+
+            var hasErrors = errorLexer.HasErrors || errorParser.HasErrors;
+            Debug.Log("The sentence is: " + !hasErrors);
+            check.GetComponent<Image>().color = hasErrors ? Color.red : Color.green;
         }
         catch (Exception e)
         {
@@ -105,7 +118,76 @@ public class CheckGrammar : MonoBehaviour
 
 }
 
-public class ErrorListener : IAntlrErrorListener<IToken>
+public class aaaa : IParseTreeListener
+{
+    public void EnterEveryRule(ParserRuleContext ctx)
+    {
+        Debug.Log("AAA");
+    }
+
+    public void ExitEveryRule(ParserRuleContext ctx)
+    {
+        Debug.Log("BBB");
+    }
+
+    public void VisitErrorNode(IErrorNode node)
+    {
+        Debug.Log("CCC");
+    }
+
+    public void VisitTerminal(ITerminalNode node)
+    {
+        Debug.Log("DDD");
+    }
+}
+
+public class ParserErrorListener : BaseErrorListener
+{
+    public override void SyntaxError(
+        TextWriter output, IRecognizer recognizer,
+        IToken offendingSymbol, int line,
+        int charPositionInLine, string msg,
+        RecognitionException e)
+    {
+        string sourceName = recognizer.InputStream.SourceName;
+        Console.WriteLine("line:{0} col:{1} src:{2} msg:{3}", line, charPositionInLine, sourceName, msg);
+        Console.WriteLine("--------------------");
+        Console.WriteLine(e);
+        Console.WriteLine("--------------------");
+    }
+}
+
+public class LexerErrorListener : IAntlrErrorListener<int>
+{
+    public void SyntaxError(
+        TextWriter output, IRecognizer recognizer,
+        int offendingSymbol, int line,
+        int charPositionInLine, string msg,
+        RecognitionException e)
+    {
+        string sourceName = recognizer.InputStream.SourceName;
+        Console.WriteLine("line:{0} col:{1} src:{2} msg:{3}", line, charPositionInLine, sourceName, msg);
+        Console.WriteLine("--------------------");
+        Console.WriteLine(e);
+        Console.WriteLine("--------------------");
+    }
+}
+
+
+internal class ErrorLexer : IAntlrErrorListener<int>
+{
+    public bool HasErrors { get; private set; } = false;
+
+    public void SyntaxError(TextWriter output, IRecognizer recognizer, int offendingSymbol, int line, int charPositionInLine, string msg, RecognitionException e)
+    {
+        HasErrors = true;
+        Debug.Log("Error: " + msg);
+    }
+}
+
+
+
+public class ErrorParser : IAntlrErrorListener<IToken>
 {
     public bool HasErrors { get; private set; } = false;
 
@@ -118,8 +200,9 @@ public class ErrorListener : IAntlrErrorListener<IToken>
         string msg,
         RecognitionException e)
     {
-        // Marcar que hubo un error
+
         HasErrors = true;
+        Debug.Log("Error: " + msg);
     }
 }
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:/Projects/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
+// Generated from C:/Projects/Grammar_With_ANTLR4_Unity/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -36,6 +36,18 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class Simple_GrammarBaseListener : ISimple_GrammarListener {
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.start"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterStart([NotNull] Simple_GrammarParser.StartContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="Simple_GrammarParser.start"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitStart([NotNull] Simple_GrammarParser.StartContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.s"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -59,6 +71,30 @@ public partial class Simple_GrammarBaseListener : ISimple_GrammarListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitT([NotNull] Simple_GrammarParser.TContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.a"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterA([NotNull] Simple_GrammarParser.AContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="Simple_GrammarParser.a"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitA([NotNull] Simple_GrammarParser.AContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="Simple_GrammarParser.b"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterB([NotNull] Simple_GrammarParser.BContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="Simple_GrammarParser.b"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitB([NotNull] Simple_GrammarParser.BContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

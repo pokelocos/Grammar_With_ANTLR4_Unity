@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:/Projects/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
+// Generated from C:/Projects/Grammar_With_ANTLR4_Unity/Grammar_Project/Assets/Simple_Grammar (ANTLR)/Simple_Grammar.g4 by ANTLR 4.13.2
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -38,9 +38,9 @@ public partial class Simple_GrammarParser : Parser {
 	public const int
 		T__0=1, T__1=2;
 	public const int
-		RULE_s = 0, RULE_t = 1;
+		RULE_start = 0, RULE_s = 1, RULE_t = 2, RULE_a = 3, RULE_b = 4;
 	public static readonly string[] ruleNames = {
-		"s", "t"
+		"start", "s", "t", "a", "b"
 	};
 
 	private static readonly string[] _LiteralNames = {
@@ -80,6 +80,54 @@ public partial class Simple_GrammarParser : Parser {
 		Interpreter = new ParserATNSimulator(this, _ATN, decisionToDFA, sharedContextCache);
 	}
 
+	public partial class StartContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public SContext s() {
+			return GetRuleContext<SContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Eof() { return GetToken(Simple_GrammarParser.Eof, 0); }
+		public StartContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_start; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISimple_GrammarListener typedListener = listener as ISimple_GrammarListener;
+			if (typedListener != null) typedListener.EnterStart(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISimple_GrammarListener typedListener = listener as ISimple_GrammarListener;
+			if (typedListener != null) typedListener.ExitStart(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StartContext start() {
+		StartContext _localctx = new StartContext(Context, State);
+		EnterRule(_localctx, 0, RULE_start);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 10;
+			s();
+			State = 11;
+			Match(Eof);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
 	public partial class SContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public TContext t() {
 			return GetRuleContext<TContext>(0);
@@ -104,11 +152,11 @@ public partial class Simple_GrammarParser : Parser {
 	[RuleVersion(0)]
 	public SContext s() {
 		SContext _localctx = new SContext(Context, State);
-		EnterRule(_localctx, 0, RULE_s);
+		EnterRule(_localctx, 2, RULE_s);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 4;
+			State = 13;
 			t(0);
 			}
 		}
@@ -124,8 +172,14 @@ public partial class Simple_GrammarParser : Parser {
 	}
 
 	public partial class TContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public AContext a() {
+			return GetRuleContext<AContext>(0);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public TContext t() {
 			return GetRuleContext<TContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public BContext b() {
+			return GetRuleContext<BContext>(0);
 		}
 		public TContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -154,34 +208,34 @@ public partial class Simple_GrammarParser : Parser {
 		int _parentState = State;
 		TContext _localctx = new TContext(Context, _parentState);
 		TContext _prevctx = _localctx;
-		int _startState = 2;
-		EnterRecursionRule(_localctx, 2, RULE_t, _p);
+		int _startState = 4;
+		EnterRecursionRule(_localctx, 4, RULE_t, _p);
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 10;
+			State = 20;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case T__0:
 				{
-				State = 7;
-				Match(T__0);
-				State = 8;
+				State = 16;
+				a();
+				State = 17;
 				t(3);
 				}
 				break;
 			case T__1:
 				{
-				State = 9;
-				Match(T__1);
+				State = 19;
+				b();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 16;
+			State = 26;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,1,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -193,14 +247,14 @@ public partial class Simple_GrammarParser : Parser {
 					{
 					_localctx = new TContext(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_t);
-					State = 12;
+					State = 22;
 					if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
-					State = 13;
-					Match(T__1);
+					State = 23;
+					b();
 					}
 					} 
 				}
-				State = 18;
+				State = 28;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,1,Context);
 			}
@@ -217,9 +271,89 @@ public partial class Simple_GrammarParser : Parser {
 		return _localctx;
 	}
 
+	public partial class AContext : ParserRuleContext {
+		public AContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_a; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISimple_GrammarListener typedListener = listener as ISimple_GrammarListener;
+			if (typedListener != null) typedListener.EnterA(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISimple_GrammarListener typedListener = listener as ISimple_GrammarListener;
+			if (typedListener != null) typedListener.ExitA(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public AContext a() {
+		AContext _localctx = new AContext(Context, State);
+		EnterRule(_localctx, 6, RULE_a);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 29;
+			Match(T__0);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BContext : ParserRuleContext {
+		public BContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_b; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISimple_GrammarListener typedListener = listener as ISimple_GrammarListener;
+			if (typedListener != null) typedListener.EnterB(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISimple_GrammarListener typedListener = listener as ISimple_GrammarListener;
+			if (typedListener != null) typedListener.ExitB(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BContext b() {
+		BContext _localctx = new BContext(Context, State);
+		EnterRule(_localctx, 8, RULE_b);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 31;
+			Match(T__1);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
 	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 1: return t_sempred((TContext)_localctx, predIndex);
+		case 2: return t_sempred((TContext)_localctx, predIndex);
 		}
 		return true;
 	}
@@ -231,12 +365,15 @@ public partial class Simple_GrammarParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,2,20,2,0,7,0,2,1,7,1,1,0,1,0,1,1,1,1,1,1,1,1,3,1,11,8,1,1,1,1,1,5,
-		1,15,8,1,10,1,12,1,18,9,1,1,1,0,1,2,2,0,2,0,0,19,0,4,1,0,0,0,2,10,1,0,
-		0,0,4,5,3,2,1,0,5,1,1,0,0,0,6,7,6,1,-1,0,7,8,5,1,0,0,8,11,3,2,1,3,9,11,
-		5,2,0,0,10,6,1,0,0,0,10,9,1,0,0,0,11,16,1,0,0,0,12,13,10,2,0,0,13,15,5,
-		2,0,0,14,12,1,0,0,0,15,18,1,0,0,0,16,14,1,0,0,0,16,17,1,0,0,0,17,3,1,0,
-		0,0,18,16,1,0,0,0,2,10,16
+		4,1,2,34,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,1,0,1,0,1,0,1,1,1,1,1,
+		2,1,2,1,2,1,2,1,2,3,2,21,8,2,1,2,1,2,5,2,25,8,2,10,2,12,2,28,9,2,1,3,1,
+		3,1,4,1,4,1,4,0,1,4,5,0,2,4,6,8,0,0,30,0,10,1,0,0,0,2,13,1,0,0,0,4,20,
+		1,0,0,0,6,29,1,0,0,0,8,31,1,0,0,0,10,11,3,2,1,0,11,12,5,0,0,1,12,1,1,0,
+		0,0,13,14,3,4,2,0,14,3,1,0,0,0,15,16,6,2,-1,0,16,17,3,6,3,0,17,18,3,4,
+		2,3,18,21,1,0,0,0,19,21,3,8,4,0,20,15,1,0,0,0,20,19,1,0,0,0,21,26,1,0,
+		0,0,22,23,10,2,0,0,23,25,3,8,4,0,24,22,1,0,0,0,25,28,1,0,0,0,26,24,1,0,
+		0,0,26,27,1,0,0,0,27,5,1,0,0,0,28,26,1,0,0,0,29,30,5,1,0,0,30,7,1,0,0,
+		0,31,32,5,2,0,0,32,9,1,0,0,0,2,20,26
 	};
 
 	public static readonly ATN _ATN =
