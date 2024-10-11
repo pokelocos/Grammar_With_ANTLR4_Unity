@@ -16,6 +16,8 @@ In this implementation, the grammar is an object inherited from ScriptableObject
 * Grammars are composed of sets of rules. Each rule consists of a variable called **input** and a group of derivations called **outputs**.
 * This system is weighted, meaning each **output** has a weight that translates into its probability of being derived compared to others.
 
+**Caution**: The ANTLR library is case-sensitive. We recommend using all inputs and outputs in lowercase to avoid potential errors.
+
 ## Generating Sentences Based on the Grammar
 
 * Grammars can derive both specific words and complete sentences. You can do this by calling the methods **yourGrammar.ExpandSentence** or **yourGrammar.ExpandWord**.
