@@ -9,6 +9,8 @@ This project is a custom implementation of generative grammars as an extension i
 # Creation of Grammar Assets
 In this implementation, the grammar is an object inherited from ScriptableObject, so you can create your own grammar very similarly to how most assets are created in Unity. Simply right-click in a folder, then select **Create > Grammar > New Grammar...**. This will create a grammar with the default name `New_Grammar`, and you should rename it appropriately to avoid conflicts between files.
 
+![image](https://github.com/user-attachments/assets/d92d2a25-d0b0-49bc-b647-69791ef10b91)
+
 **Caution**: Some systems in this tool may fail if the grammar name contains spaces or special characters. It is recommended to use underscores ("_") instead.
 
 ## Modifying Grammars
