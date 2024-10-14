@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905adc25a727dee4aa02012552572d81, type: 3}
+  m_Name: Ability_Grammar
+  m_EditorClassIdentifier: 
+  rules:
+  - input: ability
+    outputs:
+    - words:
+      - event
+      - action
+      weigth: 1
+    - words:
+      - cost
+      - action
+      weigth: 1
+    foldout: 1
+  - input: event
+    outputs:
+    - words:
+      - on_play
+      weigth: 1
+    - words:
+      - on_death
+      weigth: 1
+    - words:
+      - on_sacrifice
+      weigth: 1
+    foldout: 1
+  - input: cost
+    outputs:
+    - words:
+      - tap
+      weigth: 1
+    - words:
+      - n_soul
+      weigth: 1
+    - words:
+      - sacrifice
+      weigth: 1
+    foldout: 1
+  - input: action
+    outputs:
+    - words:
+      - draw_card
+      weigth: 1
+    - words:
+      - destroy
+      - target
+      weigth: 1
+    foldout: 1
+  - input: target
+    outputs:
+    - words:
+      - creature
+      weigth: 1
+    - words:
+      - build
+      weigth: 1
+    - words:
+      - hero
+      weigth: 1
+    foldout: 1
+  lexerRef: 
+  parserRef: 
+  rootWord: ability
